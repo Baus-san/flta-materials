@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:fooderlich/components/components.dart';
 
-import '../models/explore_data.dart';
 import '../api/mock_fooderlich_service.dart';
+import '../components/components.dart';
+import '../models/explore_data.dart';
 
 class ExploreScreen extends StatelessWidget {
   final mockService = MockFooderlichService();
@@ -17,22 +17,30 @@ class ExploreScreen extends StatelessWidget {
       // creates a future that will, in turn, return an ExploreData instance.
       // That instance will contain two lists, todayRecipes and friendPosts.
       future: mockService.getExploreData(),
-      // 3. Within builder, you use snapshot to check the current state of
-      // the Future.
+      // 3. Check the state of the future within the builder callback.
       builder: (context, AsyncSnapshot<ExploreData> snapshot) {
-        // TODO: Add Nested List Views
-        // 4. Now, the Future is complete and you can extract the data to pass
-        // to your widget.
+        // 4. Check the state of the future within the builder callback.
         if (snapshot.connectionState == ConnectionState.done) {
-          // 5. snapshot.data returns ExploreData, from which you extract
-          // todayRecipes to pass to the list view. Right now,
-          // you show a simple text as a placeholder.
-          // You’ll build a TodayRecipeListView soon.
           final recipes = snapshot.data?.todayRecipes ?? [];
-          return TodayRecipeListView(recipes: recipes);
+          // 5. When the future is complete, return the primary ListView.
+          // This holds an explicit list of children. In this scenario,
+          // the primary ListView will hold the other two ListViews as children.
+          return ListView(
+            children: [
+              TodayRecipeListView(recipes: recipes),
+              const SizedBox(height: 16),
+              // 9 Add a green placeholder container.
+              // You’ll create and add the FriendPostListView later.
+              // TODO: Replace this with FriendPostListView
+              Container(
+                height: 400,
+                color: Colors.green,
+              ),
+            ],
+          );
         } else {
-          // 6. The future is still loading, so you show a spinner
-          // to let the user know something is happening.
+          // 6. If the future hasn’t finished loading yet,
+          // show a circular progress indicator.
           return const Center(
             child: CircularProgressIndicator(),
           );
