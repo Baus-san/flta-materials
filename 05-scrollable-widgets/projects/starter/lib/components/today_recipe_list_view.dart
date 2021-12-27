@@ -37,14 +37,38 @@ class TodayRecipeListView extends StatelessWidget {
           // to grey. This container will hold your horizontal list view.
           Container(
             height: 400,
-            // TODO: Add ListView Here
-            color: Colors.grey,
+            color: Colors.transparent,
+            child: ListView.separated(
+              scrollDirection: Axis.horizontal,
+              itemCount: recipes.length,
+              itemBuilder: (context, index) {
+                final recipe = recipes[index];
+                return buildCard(recipe);
+              },
+              separatorBuilder: (context, index) {
+                return const SizedBox(height: 16);
+              },
+            ),
           ),
         ],
       ),
     );
   }
 
-// TODO: Add buildCard() widget here
-
+  /**
+   * This function builds the card for each item. Every ExploreRecipe has a
+   * cardType. This helps you determine which Card to create for that recipe.
+   */
+  Widget buildCard(ExploreRecipe recipe) {
+    switch (recipe.cardType) {
+      case RecipeCardType.card1:
+        return Card1(recipe: recipe);
+      case RecipeCardType.card2:
+        return Card2(recipe: recipe);
+      case RecipeCardType.card3:
+        return Card3(recipe: recipe);
+      default:
+        throw Exception('This card doesn\'t exist yet');
+    }
+  }
 }
