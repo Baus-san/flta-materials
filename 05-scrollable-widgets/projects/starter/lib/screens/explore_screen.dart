@@ -22,6 +22,7 @@ class ExploreScreen extends StatelessWidget {
         // 4. Check the state of the future within the builder callback.
         if (snapshot.connectionState == ConnectionState.done) {
           final recipes = snapshot.data?.todayRecipes ?? [];
+          final friendPosts = snapshot.data?.friendPosts ?? [];
           // 5. When the future is complete, return the primary ListView.
           // This holds an explicit list of children. In this scenario,
           // the primary ListView will hold the other two ListViews as children.
@@ -29,13 +30,7 @@ class ExploreScreen extends StatelessWidget {
             children: [
               TodayRecipeListView(recipes: recipes),
               const SizedBox(height: 16),
-              // 9 Add a green placeholder container.
-              // You’ll create and add the FriendPostListView later.
-              // TODO: Replace this with FriendPostListView
-              Container(
-                height: 400,
-                color: Colors.green,
-              ),
+              FriendPostListView(friendPosts: friendPosts),
             ],
           );
         } else {
