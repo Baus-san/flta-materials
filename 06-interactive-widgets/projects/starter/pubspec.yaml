@@ -13,6 +13,9 @@ dependencies:
   google_fonts: ^2.1.0
   provider:
     ^6.0.0
+  flutter_colorpicker: ^0.6.0 # Provides a material color picker for your app.
+  intl: ^0.17.0 # Provides internationalization and localization utilities. You’ll use this to format dates.
+  uuid: ^3.0.4 # Generates unique keys for each grocery item. This helps you know which item to add, update or remove.
 
 dev_dependencies:
   flutter_test:
