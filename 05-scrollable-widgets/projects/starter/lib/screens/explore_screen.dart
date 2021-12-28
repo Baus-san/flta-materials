@@ -4,10 +4,42 @@ import '../api/mock_fooderlich_service.dart';
 import '../components/components.dart';
 import '../models/explore_data.dart';
 
-class ExploreScreen extends StatelessWidget {
-  final mockService = MockFooderlichService();
+class ExploreScreen extends StatefulWidget {
+  const ExploreScreen({Key? key}) : super(key: key);
 
-  ExploreScreen({Key? key}) : super(key: key);
+  @override
+  State<ExploreScreen> createState() => _ExploreScreenState();
+}
+
+class _ExploreScreenState extends State<ExploreScreen> {
+  final mockService = MockFooderlichService();
+  late ScrollController _scrollController;
+
+  void _scrollListener() {
+    if (_scrollController.offset >=
+            _scrollController.position.maxScrollExtent &&
+        !_scrollController.position.outOfRange) {
+      print('I am at the bottom!');
+    }
+    if (_scrollController.offset <=
+            _scrollController.position.minScrollExtent &&
+        !_scrollController.position.outOfRange) {
+      print('I am at the top!');
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _scrollController = ScrollController();
+    _scrollController.addListener(_scrollListener);
+  }
+
+  @override
+  void dispose() {
+    _scrollController.removeListener(_scrollListener);
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -27,6 +59,7 @@ class ExploreScreen extends StatelessWidget {
           // This holds an explicit list of children. In this scenario,
           // the primary ListView will hold the other two ListViews as children.
           return ListView(
+            controller: _scrollController,
             children: [
               TodayRecipeListView(recipes: recipes),
               const SizedBox(height: 16),
