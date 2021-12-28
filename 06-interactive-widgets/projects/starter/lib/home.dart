@@ -31,8 +31,13 @@ class _HomeState extends State<Home> {
               style: Theme.of(context).textTheme.headline6,
             ),
           ),
-          // TODO: Replace body
-          body: pages[tabManager.selectedTab],
+          // IndexedStack allows you to easily switch widgets in your app.
+          // It only shows one child widget at a time,
+          // but it preserves the state of all the children.
+          body: IndexedStack(
+            index: tabManager.selectedTab,
+            children: pages,
+          ),
           bottomNavigationBar: BottomNavigationBar(
             selectedItemColor:
                 Theme.of(context).textSelectionTheme.selectionColor,
