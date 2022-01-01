@@ -2,11 +2,10 @@ import 'package:flutter/material.dart';
 
 import '../models/models.dart';
 import '../screens/screens.dart';
+import 'app_link.dart';
 
-class AppRouter extends RouterDelegate //TODO: Add <AppLink>
-    with
-        ChangeNotifier,
-        PopNavigatorRouterDelegateMixin {
+class AppRouter extends RouterDelegate<AppRouter>
+    with ChangeNotifier, PopNavigatorRouterDelegateMixin {
   @override
   final GlobalKey<NavigatorState> navigatorKey;
 
@@ -94,11 +93,62 @@ class AppRouter extends RouterDelegate //TODO: Add <AppLink>
     return true;
   }
 
-  // TODO: Convert app state to applink
+  AppLink getCurrentPath() {
+    // If the user hasn’t logged in, return the app link with the login path.
+    if (!appStateManager.isLoggedIn) {
+      return AppLink(location: AppLink.loginPath);
+    // If the user hasn’t completed onboarding, return the app link with the
+    // onboarding path.
+    } else if (!appStateManager.isOnboardingComplete) {
+      return AppLink(location: AppLink.onboardingPath);
+    // If the user taps the profile, return the app link with the profile path.
+    } else if (profileManager.didSelectUser) {
+      return AppLink(location: AppLink.profilePath);
+    // If the user taps the + button to create a new grocery item,
+    // return the app link with the item path.
+    } else if (groceryManager.isCreatingNewItem) {
+      return AppLink(location: AppLink.itemPath);
+    // If the user selected an existing item,
+    // return an app link with the item path and the item’s id.
+    } else if (groceryManager.selectedGroceryItem != null) {
+      final id = groceryManager.selectedGroceryItem?.id;
+      return AppLink(location: AppLink.itemPath, itemId: id);
+    // If none of the conditions are met,
+    // default by returning to the home path with the selected tab.
+    } else {
+      return AppLink(
+        location: AppLink.homePath,
+        currentTab: appStateManager.getSelectedTab,
+      );
+    }
+  }
 
-  // TODO: Apply configuration helper
 
-  // TODO: Replace setNewRoutePath
   @override
-  Future<void> setNewRoutePath(configuration) async => null;
+  AppLink get currentConfiguration => getCurrentPath();
+
+  @override
+  Future<void> setNewRoutePath(AppLink newLink) async {
+    switch (newLink.location) {
+      case AppLink.profilePath:
+        profileManager.tapOnProfile(true);
+        break;
+      case AppLink.itemPath:
+        final itemId = newLink.itemId;
+        if (itemId != null) {
+          groceryManager.setSelectedGroceryItem(itemId);
+        } else {
+          groceryManager.createNewItem();
+        }
+        profileManager.tapOnProfile(false);
+        break;
+      case AppLink.homePath:
+        appStateManager.goToTab(newLink.currentTab ?? 0);
+        profileManager.tapOnProfile(false);
+        groceryManager.groceryItemTapped(-1);
+        break;
+      default:
+        break;
+    }
+  }
 }

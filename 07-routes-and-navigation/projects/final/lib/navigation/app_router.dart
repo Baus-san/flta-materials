@@ -12,6 +12,7 @@ class AppRouter extends RouterDelegate
 
   // 3
   final AppStateManager appStateManager;
+
   // 4
   final GroceryManager groceryManager;
   final ProfileManager profileManager;

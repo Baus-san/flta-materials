@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../../data/memory_repository.dart';
+
+import '../../data/models/ingredient.dart';
+import '../../data/repository.dart';
 
 class ShoppingList extends StatefulWidget {
   const ShoppingList({Key? key}) : super(key: key);
@@ -14,12 +16,19 @@ class _ShoppingListState extends State<ShoppingList> {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<MemoryRepository>(builder: (context, repository, child) {
-      final ingredients = repository.findAllIngredients();
-      return ListView.builder(
-          itemCount: ingredients.length,
-          itemBuilder: (BuildContext context, int index) {
-            return CheckboxListTile(
+    final repository = Provider.of<Repository>(context, listen: false);
+    return StreamBuilder<List<Ingredient>>(
+      stream: repository.watchAllIngredients(),
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.active) {
+          final ingredients = snapshot.data;
+          if (ingredients == null) {
+            return Container();
+          }
+          return ListView.builder(
+            itemCount: ingredients.length,
+            itemBuilder: (BuildContext context, int index) {
+              return CheckboxListTile(
                 value:
                     checkBoxValues.containsKey(index) && checkBoxValues[index]!,
                 title: Text(ingredients[index].name ?? ''),
@@ -30,9 +39,13 @@ class _ShoppingListState extends State<ShoppingList> {
                     });
                   }
                 },
-            );
-          },);
-      // TODO: Add else here
-      },);
+              );
+            },
+          );
+        } else {
+          return Container();
+        }
+      },
+    );
   }
 }

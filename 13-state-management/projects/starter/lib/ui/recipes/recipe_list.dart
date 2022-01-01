@@ -12,6 +12,10 @@ import '../../network/recipe_service.dart';
 import '../recipe_card.dart';
 import '../recipes/recipe_details.dart';
 import '../colors.dart';
+import '../../data/models/models.dart';
+import '../../mock_service/mock_service.dart';
+import 'package:provider/provider.dart';
+
 
 class RecipeList extends StatefulWidget {
   const RecipeList({Key? key}) : super(key: key);
@@ -194,7 +198,7 @@ class _RecipeListState extends State<RecipeList> {
       return Container();
     }
     return FutureBuilder<Response<Result<APIRecipeQuery>>>(
-      future: RecipeService.create().queryRecipes(
+      future: Provider.of<MockService>(context).queryRecipes(
           searchTextController.text.trim(),
           currentStartPosition,
           currentEndPosition),
@@ -279,13 +283,25 @@ class _RecipeListState extends State<RecipeList> {
   Widget _buildRecipeCard(
       BuildContext topLevelContext, List<APIHits> hits, int index) {
     final recipe = hits[index].recipe;
+    final detailRecipe = Recipe(
+      label: recipe.label,
+      image: recipe.image,
+      url: recipe.url,
+      calories: recipe.calories,
+      totalTime: recipe.totalTime,
+      totalWeight: recipe.totalWeight,
+    );
     return GestureDetector(
       onTap: () {
-        Navigator.push(topLevelContext, MaterialPageRoute(
-          builder: (context) {
-            return const RecipeDetails();
-          },
-        ),);
+        Navigator.push(
+          topLevelContext,
+          MaterialPageRoute(
+            builder: (context) {
+              detailRecipe.ingredients = convertIngredient(recipe.ingredients);
+              return RecipeDetails(recipe: detailRecipe);
+            },
+          ),
+        );
       },
       child: recipeCard(recipe),
     );

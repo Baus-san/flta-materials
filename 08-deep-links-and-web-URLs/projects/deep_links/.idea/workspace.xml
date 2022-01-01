@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="53914a67-acc0-4fbd-9789-c5e9ba365c8e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../../../07-routes-and-navigation/projects/starter/lib/app_router.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../07-routes-and-navigation/projects/starter/lib/models/app_state_manager.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../starter/lib/navigation/app_link.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../starter/lib/navigation/app_route_parser.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../05-scrollable-widgets/projects/final/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../../05-scrollable-widgets/projects/final/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../07-routes-and-navigation/projects/final/lib/navigation/app_router.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../../../07-routes-and-navigation/projects/final/lib/navigation/app_router.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../07-routes-and-navigation/projects/final/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../../07-routes-and-navigation/projects/final/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../07-routes-and-navigation/projects/starter/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../../../07-routes-and-navigation/projects/starter/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../07-routes-and-navigation/projects/starter/lib/models/models.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../../../07-routes-and-navigation/projects/starter/lib/models/models.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../07-routes-and-navigation/projects/starter/lib/screens/empty_grocery_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../../../07-routes-and-navigation/projects/starter/lib/screens/empty_grocery_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../07-routes-and-navigation/projects/starter/lib/screens/grocery_item_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../../../07-routes-and-navigation/projects/starter/lib/screens/grocery_item_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../07-routes-and-navigation/projects/starter/lib/screens/grocery_list_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../../../07-routes-and-navigation/projects/starter/lib/screens/grocery_list_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../07-routes-and-navigation/projects/starter/lib/screens/grocery_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../../../07-routes-and-navigation/projects/starter/lib/screens/grocery_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../07-routes-and-navigation/projects/starter/lib/screens/home.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../../../07-routes-and-navigation/projects/starter/lib/screens/home.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../07-routes-and-navigation/projects/starter/lib/screens/login_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../../../07-routes-and-navigation/projects/starter/lib/screens/login_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../07-routes-and-navigation/projects/starter/lib/screens/onboarding_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../../../07-routes-and-navigation/projects/starter/lib/screens/onboarding_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../07-routes-and-navigation/projects/starter/lib/screens/profile_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../../../07-routes-and-navigation/projects/starter/lib/screens/profile_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../07-routes-and-navigation/projects/starter/lib/screens/splash_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../../../07-routes-and-navigation/projects/starter/lib/screens/splash_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../07-routes-and-navigation/projects/starter/lib/screens/webview_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../../../07-routes-and-navigation/projects/starter/lib/screens/webview_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../07-routes-and-navigation/projects/starter/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../../07-routes-and-navigation/projects/starter/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../final/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../final/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../starter/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../starter/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../starter/lib/navigation/app_router.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../starter/lib/navigation/app_router.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../starter/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../starter/pubspec.lock" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="ProjectId" id="22xAOXFWmXC5FOUSEYNnThXRFST" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
+    <property name="dart.analysis.tool.window.visible" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../starter" />
+    <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
+    <property name="show.migrate.to.gradle.popup" value="false" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="53914a67-acc0-4fbd-9789-c5e9ba365c8e" name="Default Changelist" comment="" />
+      <created>1640768834613</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1640768834613</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

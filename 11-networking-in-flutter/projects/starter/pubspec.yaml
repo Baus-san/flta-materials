@@ -18,6 +18,7 @@ dependencies:
   flutter_svg: ^0.22.0
   shared_preferences: ^2.0.7
   json_annotation: ^4.1.0
+  http: ^0.13.3
 
 dev_dependencies:
   flutter_test:
